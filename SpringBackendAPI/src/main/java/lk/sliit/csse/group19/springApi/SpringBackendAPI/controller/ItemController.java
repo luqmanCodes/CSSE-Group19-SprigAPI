@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,17 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.AuthorizedEmployee;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Item;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.ItemService;
 
+/**
+ * @author Dev
+ *
+ */
 @RestController
-@RequestMapping("/employees")
-public class EmployeeController {
-	
+@RequestMapping("/item")
+public class ItemController {
+
 	@Autowired
-	private EmployeeController employeeController;
+	private ItemService itemService;
 	
-	@GetMapping(path="/")
-	public @ResponseBody Iterable<AuthorizedEmployee> getAllEmployees() {
-		return this.employeeController.getAllEmployees();
+	@GetMapping
+	public @ResponseBody Iterable<Item> getAllItems() {
+		return this.itemService.getAllItems();
 	}
 }

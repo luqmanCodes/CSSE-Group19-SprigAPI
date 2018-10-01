@@ -1,3 +1,7 @@
+/**
+ * @author Dev
+ * 
+ */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
 import javax.persistence.Entity;
@@ -7,20 +11,35 @@ import javax.persistence.Id;
 public class AuthorizedEmployee {
 	
 	@Id
-	private String empId;
+	private String id;
 	private String name;
+	private String password;
 	
-	public String getEmpId() {
-		return empId;
-	}
-	public void setEmpId(String empId) {
-		this.empId = empId;
+	private String mobileNumber;
+	
+	public String getId() {
+		return id;
 	}
 	public String getName() {
 		return name;
 	}
+	public String getPassword() {
+		return password;
+	}
+	public String getMobileNumber() {
+		return mobileNumber;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setMobileNumber(String mobileNumber) {
+		this.mobileNumber = mobileNumber;
 	}
 	
 	
