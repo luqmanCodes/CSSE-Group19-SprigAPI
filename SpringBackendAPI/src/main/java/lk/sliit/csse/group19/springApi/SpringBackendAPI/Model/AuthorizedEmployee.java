@@ -1,12 +1,12 @@
-/**
- * @author Dev
- * 
- */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
+/**
+ * @author Dev
+ * Authorized Employee Table Model
+ */
 @Entity
 public class AuthorizedEmployee {
 	
@@ -15,7 +15,7 @@ public class AuthorizedEmployee {
 	private String name;
 	private String password;
 	
-	private String mobileNumber;
+	private String mobile_Number;
 	
 	public String getId() {
 		return id;
@@ -27,7 +27,7 @@ public class AuthorizedEmployee {
 		return password;
 	}
 	public String getMobileNumber() {
-		return mobileNumber;
+		return mobile_Number;
 	}
 	public void setId(String id) {
 		this.id = id;
@@ -38,8 +38,8 @@ public class AuthorizedEmployee {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public void setMobileNumber(String mobileNumber) {
-		this.mobileNumber = mobileNumber;
+	public void setMobileNumber(String mobile_Number) {
+		this.mobile_Number = mobile_Number;
 	}
 	
 	
