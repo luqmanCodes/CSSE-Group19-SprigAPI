@@ -13,4 +13,5 @@ public interface AuthorizedEmployeeService {
 	public AuthorizedEmployee insertAuthorizedEmployee(AuthorizedEmployee authorizedEmployee);
 	public AuthorizedEmployee updateAuthorizedEmployee(String id, AuthorizedEmployee authorizedEmployeeDetails);
 	public void deleteAuthorizedEmployee(String id);
+	public AuthorizedEmployee login(String id,String password,String type);
 }

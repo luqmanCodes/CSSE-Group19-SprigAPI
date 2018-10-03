@@ -4,13 +4,14 @@
 
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.serviceImpl;
 
-import java.util.Optional;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.AuthorizedEmployee;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.AuthorizedEmployeeRepository;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.AuthorizedEmployeeService;
+
 
 @Service
 public class AuthorizedEmployeeServiceImplementation implements AuthorizedEmployeeService {
@@ -59,4 +60,16 @@ public class AuthorizedEmployeeServiceImplementation implements AuthorizedEmploy
 		authorizedEmployeeRepository.deleteById(id);
 	}
 
+
+	@Override
+	public AuthorizedEmployee login(String id, String password, String type) {
+
+		Optional<AuthorizedEmployee> auth = authorizedEmployeeRepository.findByIdAndPasswordAndType(id, password, type);
+		if(auth.isPresent())
+			return auth.get();
+		else
+			return null;
+
+	}
+ 
 }

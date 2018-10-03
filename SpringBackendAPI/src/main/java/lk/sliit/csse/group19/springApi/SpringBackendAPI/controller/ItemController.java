@@ -26,6 +26,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.ItemService;
  *
  */
 @RestController
+@CrossOrigin(origins = "http://localhost:9000/item")
 @RequestMapping("/item")
 public class ItemController {
 
