@@ -1,7 +1,10 @@
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 /**
  * @author Dev
@@ -12,12 +15,28 @@ public class AuthorizedEmployee {
 	
 	@Id
 	private String id;
+	
+	@NotNull
+	@Size(max = 20)
+	@Column(name = "Type")
 	public String type;
+	
+	@NotNull
+	@Size(max = 30)
+	@Column(name = "Name")
 	private String name;
+	
+	@NotNull
+	@Size(max = 255)
+	@Column(name = "Password")
 	private String password;
 	
+	@NotNull
+	@Size(max = 10)
+	@Column(name = "Mobile_Number")
 	private String mobileNumber;
 
+	
 	public String getId() {
 		return id;
 	}
