@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,23 +9,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Supplier;
-import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.SupplierService;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Site;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.SiteService;
 
 /**
- * 
  * @author Dev
  *
  */
 @RestController
-@RequestMapping("/supplier")
-public class SupplierController {
+@RequestMapping("/site")
+public class SiteController {
 
 	@Autowired
-	private SupplierService supplierService;
+	private SiteService siteService;
 	
 	@GetMapping
-	public @ResponseBody Iterable<Supplier> getAllSuppliers(){
-		return this.supplierService.getAllSuppliers();
+	public @ResponseBody Iterable<Site> getAllSites(){
+		return this.siteService.getAllSites();
 	}
 }

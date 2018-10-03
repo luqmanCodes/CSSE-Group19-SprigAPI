@@ -23,6 +23,7 @@ public class ItemController {
 	@Autowired
 	private ItemService itemService;
 	
+	
 	@GetMapping
 	public @ResponseBody Iterable<Item> getAllItems() {
 		return this.itemService.getAllItems();

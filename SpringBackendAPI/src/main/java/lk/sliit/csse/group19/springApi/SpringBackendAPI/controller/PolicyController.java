@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Supplier;
-import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.SupplierService;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Policy;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.PolicyService;
 
 /**
  * 
@@ -15,14 +15,14 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.SupplierService
  *
  */
 @RestController
-@RequestMapping("/supplier")
-public class SupplierController {
+@RequestMapping("/policy")
+public class PolicyController {
 
 	@Autowired
-	private SupplierService supplierService;
+	private PolicyService policyService;
 	
 	@GetMapping
-	public @ResponseBody Iterable<Supplier> getAllSuppliers(){
-		return this.supplierService.getAllSuppliers();
+	public @ResponseBody Iterable<Policy> getAllPolicies(){
+			return this.policyService.getAllPolicies();
 	}
 }

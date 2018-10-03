@@ -20,8 +20,8 @@ public class Item {
 	private int id;
 	private String name;
 	private double price;
-	private String item_Policy;
-	private String item_Comment;
+	private String itemPolicy;
+	private String itemComment;
 	
 	public int getId() {
 		return id;
@@ -32,11 +32,11 @@ public class Item {
 	public double getPrice() {
 		return price;
 	}
-	public String getItem_Policy() {
-		return item_Policy;
+	public String getItemPolicy() {
+		return itemPolicy;
 	}
-	public String getItem_Comment() {
-		return item_Comment;
+	public String getItemComment() {
+		return itemComment;
 	}
 	public void setId(int id) {
 		this.id = id;
@@ -47,11 +47,11 @@ public class Item {
 	public void setPrice(double price) {
 		this.price = price;
 	}
-	public void setItem_Policy(String item_Policy) {
-		this.item_Policy = item_Policy;
+	public void setItemPolicy(String itemPolicy) {
+		this.itemPolicy = itemPolicy;
 	}
-	public void setItem_Comment(String item_Comment) {
-		this.item_Comment = item_Comment;
+	public void setItemComment(String itemComment) {
+		this.itemComment = itemComment;
 	}
 	
 }
