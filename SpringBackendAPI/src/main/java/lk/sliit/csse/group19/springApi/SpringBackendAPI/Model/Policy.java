@@ -18,7 +18,7 @@ public class Policy {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	private String ManagerId;
+	private String managerId;
 	private String type;
 	private double value;
 	
@@ -26,7 +26,7 @@ public class Policy {
 		return id;
 	}
 	public String getManagerId() {
-		return ManagerId;
+		return managerId;
 	}
 	public String getType() {
 		return type;
@@ -38,7 +38,7 @@ public class Policy {
 		this.id = id;
 	}
 	public void setManagerId(String managerId) {
-		ManagerId = managerId;
+		this.managerId = managerId;
 	}
 	public void setType(String type) {
 		this.type = type;

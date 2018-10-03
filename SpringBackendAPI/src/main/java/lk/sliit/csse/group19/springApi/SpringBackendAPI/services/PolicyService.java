@@ -12,4 +12,6 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Policy;
 public interface PolicyService {
 
 	public Iterable<Policy> getAllPolicies();
+	public Policy insertPolicy(Policy policy);
+	public void deletePolicy(int id);
 }
