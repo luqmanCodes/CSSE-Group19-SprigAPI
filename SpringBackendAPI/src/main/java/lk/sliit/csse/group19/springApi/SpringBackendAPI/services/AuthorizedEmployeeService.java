@@ -9,4 +9,5 @@ public interface AuthorizedEmployeeService {
 	public Iterable<AuthorizedEmployee> getAllEmployees();
 	public AuthorizedEmployee insertAuthorizedEmployee(AuthorizedEmployee authorizedEmployee);
 	public void deleteAuthorizedEmployee(String id);
+	public AuthorizedEmployee login(String id,String password,String type);
 }
