@@ -5,6 +5,7 @@ package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,7 +23,10 @@ public class PurchaseOrder {
 	private int id;
 	private String siteManagerId;
 	private String managerId;
-	private int supplierId;
+	
+	@Column(nullable = true)
+	private Integer supplierId;
+	
 	private String status;
 	private String orderComment;
 	private Date initiatedDate;
@@ -37,7 +41,7 @@ public class PurchaseOrder {
 	public String getManagerId() {
 		return managerId;
 	}
-	public int getSupplierId() {
+	public Integer getSupplierId() {
 		return supplierId;
 	}
 	public String getStatus() {

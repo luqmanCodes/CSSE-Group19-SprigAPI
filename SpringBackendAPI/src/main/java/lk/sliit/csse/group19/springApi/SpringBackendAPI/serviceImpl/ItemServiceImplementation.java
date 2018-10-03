@@ -28,8 +28,4 @@ public class ItemServiceImplementation implements ItemService {
 		itemRepository.deleteById(id);	
 	}
 
-	
-
-
-
 }

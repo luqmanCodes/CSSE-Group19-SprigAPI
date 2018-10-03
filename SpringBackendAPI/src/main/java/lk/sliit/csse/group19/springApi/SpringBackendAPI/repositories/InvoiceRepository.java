@@ -13,6 +13,6 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Invoice;
  *
  */
 @Repository
-public interface InvoiceRepositoy extends CrudRepository<Invoice, Integer> {
+public interface InvoiceRepository extends CrudRepository<Invoice, Integer> {
 
 }
