@@ -11,21 +11,21 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.ItemService;
 public class ItemServiceImplementation implements ItemService {
 
 	@Autowired
-	private ItemRepository itemRepositiory;
+	private ItemRepository itemRepository;
 	
 	@Override
 	public Iterable<Item> getAllItems() {
-		return this.itemRepositiory.findAll();
+		return this.itemRepository.findAll();
 	}
 	
 	@Override
 	public Item insertItem(Item item) {
-		return (Item) this.itemRepositiory.save(item);
+		return (Item) this.itemRepository.save(item);
 	}
 
 	@Override
 	public void deleteItem(int id) {
-		itemRepositiory.deleteById(id);	
+		itemRepository.deleteById(id);	
 	}
 
 	

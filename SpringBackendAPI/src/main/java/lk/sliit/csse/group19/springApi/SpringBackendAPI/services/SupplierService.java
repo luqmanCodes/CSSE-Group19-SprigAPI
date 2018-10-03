@@ -10,4 +10,6 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Supplier;
 public interface SupplierService {
 
 	public Iterable<Supplier> getAllSuppliers();
+	public Supplier insertSupplier(Supplier supplier);
+	public void deleteSupplier(int id);
 }

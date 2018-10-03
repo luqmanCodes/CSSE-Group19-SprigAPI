@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Supplier;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Supplier;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.SupplierRepository;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.SupplierService;
 
@@ -18,4 +19,13 @@ public class SupplierServiceImplementation implements SupplierService {
 		return this.supplierRepository.findAll();
 	}
 
+	@Override
+	public Supplier insertSupplier(Supplier supplier) {
+		return (Supplier) this.supplierRepository.save(supplier);
+	}
+
+	@Override
+	public void deleteSupplier(int id) {
+		supplierRepository.deleteById(id);	
+	}
 }

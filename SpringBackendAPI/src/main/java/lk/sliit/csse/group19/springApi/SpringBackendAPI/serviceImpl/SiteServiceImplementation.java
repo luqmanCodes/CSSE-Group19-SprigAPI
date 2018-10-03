@@ -23,4 +23,14 @@ public class SiteServiceImplementation implements SiteService {
 		return this.siteRepository.findAll();
 	}
 
+	@Override
+	public Site insertSite(Site site) {
+		return (Site) this.siteRepository.save(site);
+	}
+
+	@Override
+	public void deleteSite(int id) {
+		siteRepository.deleteById(id);	
+	}
+
 }

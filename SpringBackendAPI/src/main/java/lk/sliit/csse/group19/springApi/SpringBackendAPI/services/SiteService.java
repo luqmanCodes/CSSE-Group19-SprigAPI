@@ -10,4 +10,6 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Site;
 public interface SiteService {
 	
 	public Iterable<Site> getAllSites();
+	public Site insertSite(Site site);
+	public void deleteSite(int id);
 }
