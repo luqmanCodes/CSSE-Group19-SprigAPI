@@ -28,4 +28,9 @@ public class GoodsReceiptServiceImplementation implements GoodsReceiptService {
 		goodsReceiptRepository.deleteById(id);	
 	}
 
+	@Override
+	public Iterable<GoodsReceipt> getGoodsReciptsByPurchaseOrderIdAndStatus(int purchaseOrderId,String status) {
+		return goodsReceiptRepository.findByPurchaseOrderIdAndStatus(purchaseOrderId,status);
+	}
+
 }

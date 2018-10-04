@@ -11,4 +11,5 @@ public interface GoodsReceiptService {
 	public Iterable<GoodsReceipt> getAllGoodsReceipts();
 	public GoodsReceipt insertGoodsReceipt(GoodsReceipt goodsReceipt);
 	public void deleteGoodsReceipt(int id);
+	public Iterable<GoodsReceipt> getGoodsReciptsByPurchaseOrderIdAndStatus(int purchaseOrderId,String status);
 }

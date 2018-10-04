@@ -33,6 +33,7 @@ public class GoodsReceipt {
 		return purchaseOrderId;
 	}
 	public int getSupplierId() {
+		
 		return supplierId;
 	}
 	public String getStatus() {

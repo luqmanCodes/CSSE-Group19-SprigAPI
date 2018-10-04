@@ -14,5 +14,5 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.GoodsReceipt;
  */
 @Repository
 public interface GoodsReceiptRepository extends CrudRepository<GoodsReceipt, Integer> {
-
+	public Iterable<GoodsReceipt> findByPurchaseOrderIdAndStatus(int purchaseOrderId,String status);
 }

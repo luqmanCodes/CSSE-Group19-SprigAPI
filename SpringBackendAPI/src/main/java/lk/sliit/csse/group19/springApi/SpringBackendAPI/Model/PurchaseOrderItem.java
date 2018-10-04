@@ -3,25 +3,30 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
 /**
  * @author Dev
  *
  */
+@Entity
 public class PurchaseOrderItem {
 
-	private int purchaseOrderId;
-	private int itemId;
+	@EmbeddedId
+	private PurchaseOrderItemId purchaseOrderItemId;
+	private int quantity;
 	
-	public int getPurchaseOrderId() {
-		return purchaseOrderId;
+	public int getQuantity() {
+		return quantity;
 	}
-	public int getItemId() {
-		return itemId;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
-	public void setPurchaseOrderId(int purchaseOrderId) {
-		this.purchaseOrderId = purchaseOrderId;
+	public PurchaseOrderItemId getPurchaseOrderItemId() {
+		return purchaseOrderItemId;
 	}
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public void setPurchaseOrderItemId(PurchaseOrderItemId purchaseOrderItemId) {
+		this.purchaseOrderItemId = purchaseOrderItemId;
 	}
 }
