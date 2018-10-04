@@ -39,22 +39,32 @@ public class ItemServiceImplementation implements ItemService {
 		if(itemRepository.findById(id).isPresent()) {
 			this.item = itemRepository.findById(id);
 			
-			item.get().setName(itemDetails.getName());
-			item.get().setPrice(itemDetails.getPrice());
-			item.get().setItemPolicy(itemDetails.getItemPolicy());
-			item.get().setItemComment(itemDetails.getItemComment());
+			if(itemDetails.getName() != null)
+				item.get().setName(itemDetails.getName());
+			if(itemDetails.getPrice() != 0)
+				item.get().setPrice(itemDetails.getPrice());
+			if(itemDetails.getItemPolicy() != null)
+				item.get().setItemPolicy(itemDetails.getItemPolicy());
+			if(itemDetails.getItemComment() != null)
+				item.get().setItemComment(itemDetails.getItemComment());
 			
 			return this.itemRepository.save(item.get());
 					
 		} else {
 			return null;
 		}
-		
 	}
 
 	@Override
-	public void deleteItem(int id) {
-		itemRepository.deleteById(id);	
+	public boolean deleteItem(int itemId) {
+		this.item = itemRepository.findById(itemId);
+		
+		if(this.item.isPresent()) {
+			itemRepository.deleteById(itemId);
+			return true;
+		} else {
+			return false;
+		}
+			
 	}
-
 }

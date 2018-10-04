@@ -23,7 +23,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.PurchaseOrderSe
  *
  */
 @RestController
-@RequestMapping("/purchaseOrder")
+@RequestMapping("/purchaseOrders")
 public class PurchaseOrderController {
 
 	@Autowired

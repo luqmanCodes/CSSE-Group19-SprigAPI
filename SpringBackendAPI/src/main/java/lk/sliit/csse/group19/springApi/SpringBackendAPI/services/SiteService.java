@@ -1,5 +1,7 @@
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.services;
 
+import java.util.Optional;
+
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Site;
 
 /**
@@ -10,6 +12,8 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Site;
 public interface SiteService {
 	
 	public Iterable<Site> getAllSites();
-	public Site insertSite(Site site);
-	public void deleteSite(int id);
+	public Optional<Site> findSite(int id);
+	public Site insertSite(String authorizedEmployeeId, Site site);
+	public Site updateSite(int id, Site siteDetails);
+	public boolean deleteSite(int id);
 }

@@ -27,8 +27,8 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.ItemService;
  *
  */
 @RestController
-@CrossOrigin(origins = "http://localhost:9000/item")
-@RequestMapping("/item")
+@CrossOrigin(origins = "http://localhost:9000/items")
+@RequestMapping("/items")
 public class ItemController {
 
 	@Autowired
@@ -56,7 +56,7 @@ public class ItemController {
 	}
 	
 	@DeleteMapping("/{id}")
-	public void deleteItem(@PathVariable(value="id") int id) {
-		itemService.deleteItem(id);
+	public boolean deleteItem(@PathVariable(value="id") int id) {
+		return itemService.deleteItem(id);
 	}
 }

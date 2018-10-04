@@ -23,7 +23,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.GoodsReceiptSer
  *
  */
 @RestController
-@RequestMapping("/goodsReceipt")
+@RequestMapping("/goodsReceipts")
 public class GoodsReceiptController {
 
 	@Autowired

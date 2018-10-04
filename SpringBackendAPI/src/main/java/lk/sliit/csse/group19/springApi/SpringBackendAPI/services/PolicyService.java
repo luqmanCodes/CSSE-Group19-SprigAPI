@@ -3,6 +3,8 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.services;
 
+import java.util.Optional;
+
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Policy;
 
 /**
@@ -12,6 +14,8 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Policy;
 public interface PolicyService {
 
 	public Iterable<Policy> getAllPolicies();
-	public Policy insertPolicy(Policy policy);
-	public void deletePolicy(int id);
+	public Optional<Policy> findPolicy(int id);
+	public Policy insertPolicy(String authorizedEmployeeId, Policy policy);
+	public Policy updatePolicy(int policyId, Policy policyDetails);
+	public boolean deletePolicy(int id);
 }
