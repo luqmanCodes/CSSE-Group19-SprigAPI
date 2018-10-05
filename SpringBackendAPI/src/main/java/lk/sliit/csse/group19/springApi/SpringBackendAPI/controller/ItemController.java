@@ -3,6 +3,8 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.controller;
 
+import java.util.Optional;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,11 @@ public class ItemController {
 	@GetMapping
 	public @ResponseBody Iterable<Item> getAllItems() {
 		return this.itemService.getAllItems();
+	}
+	
+	@GetMapping("/{itemId}")
+	public @ResponseBody Optional<Item> findSite(@PathVariable(value="itemId") int itemId){
+			return this.itemService.findItem(itemId);
 	}
 	
 	@PostMapping

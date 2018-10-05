@@ -1,5 +1,7 @@
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.services;
 
+import java.util.Optional;
+
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Invoice;
 
 /**
@@ -9,6 +11,8 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Invoice;
 public interface InvoiceService {
 
 	public Iterable<Invoice> getAllInvoices();
-	public Invoice insertInvoice(Invoice invoice);
-	public void deleteInvoice(int id);
+	public Optional<Invoice> findInvoice(int id);
+	public Invoice insertInvoice(int purchaseOrderId, Invoice invoice);
+	public Invoice updateInvoice(int invoiceId, Invoice invoiceDetails);
+	public boolean deleteInvoice(int id);
 }
