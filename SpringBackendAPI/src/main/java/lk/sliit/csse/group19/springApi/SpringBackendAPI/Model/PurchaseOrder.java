@@ -31,12 +31,12 @@ public class PurchaseOrder {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "ID")
 	private int id;
-	
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "Site_Manager_ID")
+
+	@Column(name = "Site_Manager_ID")
 	@OnDelete(action = OnDeleteAction.CASCADE)
-	private AuthorizedEmployee siteManager;
+	private String siteManagerId;
 	
+
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "Manager_ID")
 	@OnDelete(action = OnDeleteAction.CASCADE)
@@ -55,12 +55,9 @@ public class PurchaseOrder {
 	private Date initiatedDate;
 	private Date expectedDate;
 	
+	
 	public int getId() {
 		return id;
-	}
-
-	public AuthorizedEmployee getSiteManager() {
-		return siteManager;
 	}
 
 	public AuthorizedEmployee getManager() {
@@ -91,10 +88,6 @@ public class PurchaseOrder {
 		this.id = id;
 	}
 
-	public void setSiteManager(AuthorizedEmployee siteManager) {
-		this.siteManager = siteManager;
-	}
-
 	public void setManager(AuthorizedEmployee manager) {
 		this.manager = manager;
 	}
@@ -117,5 +110,13 @@ public class PurchaseOrder {
 
 	public void setExpectedDate(Date expectedDate) {
 		this.expectedDate = expectedDate;
+	}
+	
+	public String getSiteManagerId() {
+		return siteManagerId;
+	}
+
+	public void setSiteManagerId(String siteManagerId) {
+		this.siteManagerId = siteManagerId;
 	}
 }

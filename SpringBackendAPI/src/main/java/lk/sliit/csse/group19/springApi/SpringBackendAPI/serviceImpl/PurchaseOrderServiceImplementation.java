@@ -9,10 +9,10 @@ import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrder;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrderItem;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrderItemId;
@@ -27,6 +27,9 @@ public class PurchaseOrderServiceImplementation implements PurchaseOrderService 
 	private PurchaseOrderRepository purchaseOrderRepository;
 	@Autowired
 	private PurchaseOrderItemRepository purchaseOrderItemRepository;
+	
+	@Autowired
+	private Optional<PurchaseOrder> purchaseOrder;
 	
 	@Override
 	public Iterable<PurchaseOrder> getAllPurchaseOrders() {
@@ -77,8 +80,36 @@ public class PurchaseOrderServiceImplementation implements PurchaseOrderService 
 		return purchaseOrderRepository.findBySiteManagerIdAndStatus(siteManagerId, status);
 	}
 
-	
+	@Override
+	public Optional<PurchaseOrder> findPurchaseOrder(int purchaseOrderId) {
+		System.out.println(purchaseOrderId);
+		return this.purchaseOrderRepository.findById(purchaseOrderId);
+	}
 
+	@Override
+	public PurchaseOrder updatePurchaseOrder(int purchaseOrderId, PurchaseOrder purchaseOrderDetails) {
 
+		this.purchaseOrder = purchaseOrderRepository.findById(purchaseOrderId);
+		
+		if(this.purchaseOrder.isPresent()) {
+			if(purchaseOrderDetails.getSiteManagerId() != null)
+				this.purchaseOrder.get().setSiteManagerId(purchaseOrderDetails.getSiteManagerId());
+			if(purchaseOrderDetails.getManager() != null)
+				this.purchaseOrder.get().setManager(purchaseOrderDetails.getManager());
+			if(purchaseOrderDetails.getStatus() != null)
+				this.purchaseOrder.get().setStatus(purchaseOrderDetails.getStatus());
+			if(purchaseOrderDetails.getOrderComment() != null)
+				this.purchaseOrder.get().setOrderComment(purchaseOrderDetails.getOrderComment());
+			if(purchaseOrderDetails.getInitiatedDate() != null)
+				this.purchaseOrder.get().setInitiatedDate(purchaseOrderDetails.getInitiatedDate());
+			if(purchaseOrderDetails.getExpectedDate() != null)
+				this.purchaseOrder.get().setExpectedDate(purchaseOrderDetails.getExpectedDate()); 
+			
+			return this.purchaseOrderRepository.save(purchaseOrder.get());
+			
+		} else {
+			return null;
+		}
+	}
 
 }
