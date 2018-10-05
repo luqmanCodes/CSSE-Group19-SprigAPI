@@ -159,4 +159,4 @@ VALUES
 (NULL, 'sm1', NULL, NULL, 'Pending For Approval', NULL, '2018-10-01', '2018-10-05'),
 (NULL, 'sm1', 'mg1', 1, 'Approved', 'Check for s-lon pipes', '2018-09-29', '2018-10-06')
  
- @JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "id"))@JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "id"))
+@JoinTable(name = "book_publisher", joinColumns = @JoinColumn(name = "book_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "publisher_id", referencedColumnName = "id"))
