@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -49,6 +50,10 @@ public class GoodsReceiptController {
 	@PutMapping("/goodsReceipts/{goodsReceiptId}")
 	public GoodsReceipt updateGoodsReceipt(@PathVariable(value="goodsReceiptId") int goodsReceiptId, @Valid @RequestBody GoodsReceipt goodsReceiptDetails){
 		return this.goodsReceiptService.updateGoodsReceipt(goodsReceiptId, goodsReceiptDetails);	
+	}
+	@PutMapping("/goodsReceipts/{goodsReceiptId}/statusOnly")
+	public GoodsReceipt updateGoodsReceiptOnlyStatus(@PathVariable(value="goodsReceiptId") int goodsReceiptId,@RequestParam String status){
+		return this.goodsReceiptService.updateGoodsReceipt(goodsReceiptId,status);	
 	}
 	
 	
