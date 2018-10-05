@@ -14,5 +14,5 @@ public interface ItemService {
 	public Optional<Item> findItem(int id);
 	public Item insertItem(Item item);
 	public Item updateItem(int id, Item itemDetails);
-	public void deleteItem(int id);
+	public boolean deleteItem(int id);
 }

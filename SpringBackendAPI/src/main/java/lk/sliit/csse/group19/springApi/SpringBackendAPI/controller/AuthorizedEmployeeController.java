@@ -18,7 +18,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.AuthorizedEmployee
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.AuthorizedEmployeeService;
 
 @RestController
-@RequestMapping("/authorizedEmployee")
+@RequestMapping("/authorizedEmployees")
 public class AuthorizedEmployeeController {
 	
 	@Autowired

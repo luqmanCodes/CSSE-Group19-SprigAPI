@@ -23,7 +23,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.InvoiceService;
  *
  */
 @RestController
-@RequestMapping("/invoice")
+@RequestMapping("/invoices")
 public class InvoiceController {
 
 	@Autowired

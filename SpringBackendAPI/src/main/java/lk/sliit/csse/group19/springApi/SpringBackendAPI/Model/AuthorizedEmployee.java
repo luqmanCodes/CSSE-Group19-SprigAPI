@@ -14,6 +14,8 @@ import javax.validation.constraints.Size;
 public class AuthorizedEmployee {
 	
 	@Id
+	@Size(max = 10)
+	@Column(name = "ID")
 	private String id;
 	
 	@NotNull
@@ -36,7 +38,20 @@ public class AuthorizedEmployee {
 	@Column(name = "Mobile_Number")
 	private String mobileNumber;
 
-	
+	public AuthorizedEmployee() {
+		
+	}
+
+	public AuthorizedEmployee(String id, @NotNull @Size(max = 20) String type, @NotNull @Size(max = 30) String name,
+			@NotNull @Size(max = 255) String password, @NotNull @Size(max = 10) String mobileNumber) {
+		super();
+		this.id = id;
+		this.type = type;
+		this.name = name;
+		this.password = password;
+		this.mobileNumber = mobileNumber;
+	}
+
 	public String getId() {
 		return id;
 	}

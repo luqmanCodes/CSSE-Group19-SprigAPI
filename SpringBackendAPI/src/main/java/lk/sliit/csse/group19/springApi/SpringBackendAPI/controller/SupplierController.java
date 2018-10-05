@@ -24,7 +24,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.SupplierService
  *
  */
 @RestController
-@RequestMapping("/supplier")
+@RequestMapping("/suppliers")
 public class SupplierController {
 
 	@Autowired
