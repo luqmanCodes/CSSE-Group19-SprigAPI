@@ -3,6 +3,9 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.controller;
 
+import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
+
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -22,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.GoodsReceipt;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrder;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.PurchaseOrderItemRepository;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.GoodsReceiptService;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.PurchaseOrderService;
 
@@ -37,6 +41,8 @@ public class PurchaseOrderController {
 	private PurchaseOrderService purchaseOrderService;
 	@Autowired
 	private GoodsReceiptService goodsReceiptService;
+	@Autowired
+	private PurchaseOrderItemRepository purchaseOrderItemRepository;
 	
 	@GetMapping
 	public @ResponseBody Iterable<PurchaseOrder> getAllPurchaseOrders() {
@@ -47,7 +53,10 @@ public class PurchaseOrderController {
 	public PurchaseOrder insertPurchaseOrder(@RequestBody Map<String,Object> purchaseOrder) {
 		return this.purchaseOrderService.insertPurchaseOrder(purchaseOrder);
 	}
-	
+	@GetMapping("{id}/items")
+	public @ResponseBody List<Object> getAllItemsOfAPurchaseOrder(@PathVariable int id) {
+		return purchaseOrderItemRepository.customfindByPurchaseOrderItems(id);
+	}
 	@DeleteMapping("/{id}")
 	public void deletePurchaseOrder(@PathVariable(value="id") int id) {
 		purchaseOrderService.deletePurchaseOrder(id);
@@ -56,6 +65,7 @@ public class PurchaseOrderController {
 	public @ResponseBody Iterable<PurchaseOrder> getPurchaseOrdersBySiteManagerIdAndStatus(@RequestParam String siteManagerId,@RequestParam String status) {
 		return this.purchaseOrderService.getPurchaseOrdersBySiteMangerIdAndStatus(siteManagerId, status);
 	}
+	
 	@GetMapping("/{id}/goodsRecipts")
 	public @ResponseBody Iterable<GoodsReceipt> getGoodsReciptsByPurchaseOrderId(@PathVariable(value="id") int id,@RequestParam String status) {
 		return goodsReceiptService.getGoodsReciptsByPurchaseOrderIdAndStatus(id, status);
