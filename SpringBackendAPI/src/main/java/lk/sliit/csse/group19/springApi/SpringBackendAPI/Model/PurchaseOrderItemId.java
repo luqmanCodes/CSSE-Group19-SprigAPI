@@ -11,11 +11,13 @@ public class PurchaseOrderItemId implements Serializable {
 	private int itemId;
 	
 	public PurchaseOrderItemId() {}
+	
 	public PurchaseOrderItemId(int purchaseOrderId, int itemId) {
 		super();
 		this.purchaseOrderId = purchaseOrderId;
 		this.itemId = itemId;
 	}
+	
 	public int getPurchaseOrderId() {
 		return purchaseOrderId;
 	}

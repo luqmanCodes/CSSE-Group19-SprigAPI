@@ -1,26 +1,42 @@
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+
 /**
  * 
  * @author Dev
  *
  */
-
+@Entity
 public class GoodsReceiptItem {
 
-	private int goodsReceiptId;
-	private int itemId;
+	@EmbeddedId
+	private GoodsReceiptItemId goodsReceiptItemId;
+	private int quantity;
 	
-	public int getGoodsReceiptId() {
-		return goodsReceiptId;
+	
+	public GoodsReceiptItem(GoodsReceiptItemId goodsReceiptItemId, int quantity) {
+		super();
+		this.goodsReceiptItemId = goodsReceiptItemId;
+		this.quantity = quantity;
 	}
-	public int getItemId() {
-		return itemId;
+	
+	public GoodsReceiptItem() {
+		
 	}
-	public void setGoodsReceiptId(int goodsReceiptId) {
-		this.goodsReceiptId = goodsReceiptId;
+	public GoodsReceiptItemId getGoodsReceiptItemId() {
+		return goodsReceiptItemId;
 	}
-	public void setItemId(int itemId) {
-		this.itemId = itemId;
+	public int getQuantity() {
+		return quantity;
 	}
+	public void setGoodsReceiptItemId(GoodsReceiptItemId goodsReceiptItemId) {
+		this.goodsReceiptItemId = goodsReceiptItemId;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
+	
 }

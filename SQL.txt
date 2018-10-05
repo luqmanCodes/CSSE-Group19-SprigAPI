@@ -105,6 +105,8 @@ CREATE TABLE Goods_Receipt_Item (
 	Goods_Receipt_ID INT NOT NULL,
 	Item_ID INT NOT NULL,
 	
+	Quantity INT NOT NULL,
+	
 	CONSTRAINT pk_Goods_Receipt_Item PRIMARY KEY(Goods_Receipt_ID, Item_ID),
 	CONSTRAINT fk_Goods_Receipt_Item_Goods_Receipt FOREIGN KEY (Goods_Receipt_ID) REFERENCES Goods_Receipt(ID),
 	CONSTRAINT fk_Goods_Receipt_Item_Item FOREIGN KEY (Item_ID) REFERENCES Item(ID)
