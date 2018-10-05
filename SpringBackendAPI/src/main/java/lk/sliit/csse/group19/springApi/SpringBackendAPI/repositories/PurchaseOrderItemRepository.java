@@ -16,4 +16,9 @@ public interface PurchaseOrderItemRepository extends JpaRepository<PurchaseOrder
 	
 	@Query(value="select poi.item_id,i.name,poi.quantity from item i,purchase_order_item poi where i.id = poi.Item_id and poi.purchase_order_id = (:purchaseOrderItemId)",nativeQuery=true)
 	public List<Object> customfindByPurchaseOrderItems(@Param(value="purchaseOrderItemId")int purchaseOrderItemId );
+	
+	@Query(value = "SELECT po.id, i.name, poi.Quantity, po.Initiated_date, po.Expected_Date "
+			+ "FROM purchase_order po, purchase_order_item poi, item i "
+			+ "WHERE poi.Item_ID = i.ID AND poi.Purchase_Order_ID = po.ID AND po.id = (:purchaseOrderId)", nativeQuery=true)
+	public List<Object> findByPurchaseOrderId(@Param(value="purchaseOrderId")int purchaseOrderId);
 }

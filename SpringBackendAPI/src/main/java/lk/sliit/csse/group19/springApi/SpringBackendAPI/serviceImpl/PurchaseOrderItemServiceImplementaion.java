@@ -3,6 +3,7 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.serviceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,6 +54,12 @@ public class PurchaseOrderItemServiceImplementaion implements PurchaseOrderItemS
 	public boolean deletePurchaseOrderItem(int id) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public List<Object> getPurchaseOrderItem(int id) {
+		// TODO Auto-generated method stub
+		return this.purchaseOrderItemRepository.findByPurchaseOrderId(id);
 	}
 
 }

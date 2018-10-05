@@ -3,7 +3,7 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.controller;
 
-import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
+//import static org.assertj.core.api.Assertions.assertThatIllegalStateException;
 
 import java.util.List;
 import java.util.Map;
@@ -78,5 +78,10 @@ public class PurchaseOrderController {
 	@PutMapping("/{purchaseOrderId}")
 	public PurchaseOrder updatePurchaseOrder(@PathVariable(value="purchaseOrderId") int siteId, @Valid @RequestBody PurchaseOrder purchaseOrderDetails){
 		return this.purchaseOrderService.updatePurchaseOrder(siteId, purchaseOrderDetails);	
+	}
+	
+	@GetMapping("/orderItem")
+	public Iterable<Object> getItemByPurchaseId(@RequestParam int id){
+		return this.purchaseOrderItemRepository.findByPurchaseOrderId(id);
 	}
 }
