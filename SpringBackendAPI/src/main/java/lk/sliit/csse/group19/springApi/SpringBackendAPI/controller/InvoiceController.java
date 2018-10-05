@@ -52,7 +52,7 @@ public class InvoiceController {
 	}
 	
 	@DeleteMapping("/invoices/{id}")
-	public void deleteInvoice(@PathVariable(value="id") int id) {
-		invoiceService.deleteInvoice(id);
+	public boolean deleteInvoice(@PathVariable(value="id") int id) {
+		return invoiceService.deleteInvoice(id);
 	}
 }
