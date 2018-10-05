@@ -13,11 +13,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Invoice;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Item;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.ItemService;
 
@@ -47,6 +49,11 @@ public class ItemController {
 	@PostMapping
 	public Item insertItem(@Valid @RequestBody Item item) {
 		return this.itemService.insertItem(item);
+	}
+	
+	@PutMapping("/items/{itemsId}")
+	public Item updateItem(@PathVariable(value="itemsId") int itemsId, @Valid @RequestBody Item itemDetails){
+		return this.itemService.updateItem(itemsId, itemDetails);	
 	}
 	
 	@DeleteMapping("/{id}")

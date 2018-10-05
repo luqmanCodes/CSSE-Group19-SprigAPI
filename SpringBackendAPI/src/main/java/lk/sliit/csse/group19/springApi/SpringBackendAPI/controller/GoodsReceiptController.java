@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.GoodsReceipt;
-import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Invoice;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.GoodsReceiptService;
 
 /**

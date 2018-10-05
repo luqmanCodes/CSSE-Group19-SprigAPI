@@ -105,6 +105,8 @@ CREATE TABLE Goods_Receipt_Item (
 	Goods_Receipt_ID INT NOT NULL,
 	Item_ID INT NOT NULL,
 	
+	Quantity INT NOT NULL,
+	
 	CONSTRAINT pk_Goods_Receipt_Item PRIMARY KEY(Goods_Receipt_ID, Item_ID),
 	CONSTRAINT fk_Goods_Receipt_Item_Goods_Receipt FOREIGN KEY (Goods_Receipt_ID) REFERENCES Goods_Receipt(ID),
 	CONSTRAINT fk_Goods_Receipt_Item_Item FOREIGN KEY (Item_ID) REFERENCES Item(ID)
@@ -122,40 +124,43 @@ CREATE TABLE Purchase_Order_Item (
 	CONSTRAINT fk_Purchase_Order_Item_Item FOREIGN KEY (Item_ID) REFERENCES Item(ID)
 );
 
---Inserting
-
 INSERT INTO Authorized_Employee 
 (ID, Type, Name, Password, Mobile_Number)
 VALUES 
 ('sm1', 'Site Manager', 'Jhon', 'jhon1234', '0771231234'),
 ('mg1', 'Manager', 'Bruce', 'bruce1234', '0779119110')
+;
 
 INSERT INTO Item 
 (ID, Name, Price, Item_Policy, Item_Comment)
 VALUES 
 (NULL, 'Steel Bars', 20000, NULL, NULL),
 (NULL, 'Cement', 6000, 'min=5', 'Holciem Cement')
-
+;
 INSERT INTO Supplier 
 (ID, Name, Address, Phone_Number, Email, Bank_Account_Number) 
 VALUES 
 (NULL, 'ABC Company', 'Colombo', '0779119110', 'abc@gmail.com', '1234-1245-9876-5738'), 
 (NULL, 'Blue Ocean', 'Kandy', '0778181422', 'blue.ocean@gmail.com', '9876-9876-1234-1234')
-
+;
 INSERT INTO Policy
 (ID, Manager_ID, Type, Value)
 VALUES
 (NULL, 'mg1', 'max', 200000)
-
+;
 INSERT INTO Site
 (ID, Site_Manager_ID, Name, Address)
 VALUES
 (NULL, 'sm1', 'SL Tower', 'Kandy'),
 (NULL, 'sm1', 'SLIIT Main Building', 'Malabe')
-
+;
 INSERT INTO Purchase_Order
 (ID, Site_Manager_ID, Manager_ID, Supplier_ID, Status, Order_Comment, Initiated_Date, Expected_Date)
 VALUES
 (NULL, 'sm1', NULL, NULL, 'Pending For Approval', NULL, '2018-10-01', '2018-10-05'),
 (NULL, 'sm1', 'mg1', 1, 'Approved', 'Check for s-lon pipes', '2018-09-29', '2018-10-06')
+ ;
+ INSERT INTO `purchase_order` (`ID`, `Site_Manager_ID`, `Manager_ID`, `Supplier_ID`, `Status`, `Order_Comment`, `Initiated_Date`, `Expected_Date`) VALUES (1, 'sm1', 'mg1', '1', 'MANAGER_APPROVED', NULL, '2018-10-05', '2018-10-15');
+ INSERT INTO `purchase_order_item` (`Purchase_Order_ID`, `Item_ID`, `Quantity`) VALUES ('1', '1', '5');
+ INSERT INTO `purchase_order_item` (`Purchase_Order_ID`, `Item_ID`, `Quantity`) VALUES ('1', '2', '5');
  
