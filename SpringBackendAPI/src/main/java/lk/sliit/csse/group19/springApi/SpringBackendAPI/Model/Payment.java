@@ -37,6 +37,8 @@ public class Payment {
 	@OnDelete(action = OnDeleteAction.CASCADE)
 	private Supplier supplier;
 	
+	private int purchaseOrderId;
+	
 	private String status;
 	
 	public Payment() {
@@ -50,6 +52,15 @@ public class Payment {
 		this.invoiceId = invoiceId;
 		this.supplier = supplier;
 		this.status = status;
+	}
+	
+
+	public int getPurchaseOrderId() {
+		return purchaseOrderId;
+	}
+
+	public void setPurchaseOrderId(int purchaseOrderId) {
+		this.purchaseOrderId = purchaseOrderId;
 	}
 
 	public int getId() {

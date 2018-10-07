@@ -129,12 +129,14 @@ CREATE TABLE Payment (
 	Accountant_ID VARCHAR(10) NOT NULL,
 	Invoice_ID INT NOT NULL,
 	Supplier_ID INT NOT NULL,
+	Purchase_Order_ID INT NOT NULL,
 	Status VARCHAR(30) NOT NULL,
 	
 	CONSTRAINT pk_Payment PRIMARY KEY(ID),
 	CONSTRAINT fk_Payment_Authorized_Employee FOREIGN KEY (Accountant_ID) REFERENCES Authorized_Employee(ID),
 	CONSTRAINT fk_Payment_Invoice FOREIGN KEY (Invoice_ID) REFERENCES Invoice(ID),
-	CONSTRAINT fk_Payment_Supplier FOREIGN KEY (Supplier_ID) REFERENCES Supplier(ID)
+	CONSTRAINT fk_Payment_Supplier FOREIGN KEY (Supplier_ID) REFERENCES Supplier(ID),
+	CONSTRAINT fk_Payment_Purchase_Order FOREIGN KEY (Purchase_Order_ID) REFERENCES Purchase_Order(ID)
 )
 
 INSERT INTO Authorized_Employee 
