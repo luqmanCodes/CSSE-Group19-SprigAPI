@@ -82,7 +82,7 @@ CREATE TABLE Invoice (
 	Issue_Date DATE NOT NULL,
 	
 	CONSTRAINT pk_Invoice PRIMARY KEY(ID),
-	CONSTRAINT fk_Invoice_Purchase_Order FOREIGN KEY (ID) REFERENCES Purchase_Order(ID),
+	CONSTRAINT fk_Invoice_Purchase_Order FOREIGN KEY (Purchase_Order_ID) REFERENCES Purchase_Order(ID),
 	CONSTRAINT fk_Invoice_Supplier FOREIGN KEY (Supplier_ID) REFERENCES Supplier(ID)
 );
 
@@ -124,12 +124,24 @@ CREATE TABLE Purchase_Order_Item (
 	CONSTRAINT fk_Purchase_Order_Item_Item FOREIGN KEY (Item_ID) REFERENCES Item(ID)
 );
 
+CREATE TABLE Payment (
+	ID INT AUTO_INCREMENT,
+	Accountant_ID VARCHAR(10) NOT NULL,
+	Invoice_ID INT NOT NULL,
+	Supplier_ID INT NOT NULL,
+	Status VARCHAR(30) NOT NULL,
+	
+	CONSTRAINT pk_Payment PRIMARY KEY(ID),
+	CONSTRAINT fk_Payment_Authorized_Employee FOREIGN KEY (Accountant_ID) REFERENCES Authorized_Employee(ID),
+	CONSTRAINT fk_Payment_Invoice FOREIGN KEY (Invoice_ID) REFERENCES Invoice(ID),
+	CONSTRAINT fk_Payment_Supplier FOREIGN KEY (Supplier_ID) REFERENCES Supplier(ID)
+)
+
 INSERT INTO Authorized_Employee 
 (ID, Type, Name, Password, Mobile_Number)
 VALUES 
 ('sm1', 'Site Manager', 'Jhon', 'jhon1234', '0771231234'),
-('mg1', 'Manager', 'Bruce', 'bruce1234', '0779119110')
-;
+('mg1', 'Manager', 'Bruce', 'bruce1234', '0779119110');
 
 INSERT INTO Item 
 (ID, Name, Price, Item_Policy, Item_Comment)
@@ -158,16 +170,18 @@ INSERT INTO Purchase_Order
 (ID, Site_Manager_ID, Manager_ID, Supplier_ID, Status, Order_Comment, Initiated_Date, Expected_Date)
 VALUES
 (NULL, 'sm1', NULL, NULL, 'Pending For Approval', NULL, '2018-10-01', '2018-10-05'),
-(NULL, 'sm1', 'mg1', 1, 'Approved', 'Check for s-lon pipes', '2018-09-29', '2018-10-06')
-<<<<<<< HEAD:SQL.txt
-
+(NULL, 'sm1', 'mg1', 1, 'Approved', 'Check for s-lon pipes', '2018-09-29', '2018-10-06'),
+(NULL, 'sm1', 'mg1', '1', 'MANAGER_APPROVED', NULL, '2018-10-05', '2018-10-15')
+;
 INSERT INTO Purchase_Order_Item
 (Purchase_Order_ID, Item_ID, Quantity)
- 
-=======
- ;
- INSERT INTO `purchase_order` (`ID`, `Site_Manager_ID`, `Manager_ID`, `Supplier_ID`, `Status`, `Order_Comment`, `Initiated_Date`, `Expected_Date`) VALUES (1, 'sm1', 'mg1', '1', 'MANAGER_APPROVED', NULL, '2018-10-05', '2018-10-15');
- INSERT INTO `purchase_order_item` (`Purchase_Order_ID`, `Item_ID`, `Quantity`) VALUES ('1', '1', '5');
- INSERT INTO `purchase_order_item` (`Purchase_Order_ID`, `Item_ID`, `Quantity`) VALUES ('1', '2', '5');
- 
->>>>>>> f0118efd9efd83653b54e8ca25406d0b3293b3cd:SQL.sql
+VALUES 
+('1', '1', '5'),
+('1', '2', '5')
+;
+INSERT INTO Payment
+(ID, Accountant_ID, Invoice_ID, Status)
+VALUES
+(NULL, 'mg1', 1, 'Payed'),
+(NULL, 'mg1', 2, 'Not Payed')
+
