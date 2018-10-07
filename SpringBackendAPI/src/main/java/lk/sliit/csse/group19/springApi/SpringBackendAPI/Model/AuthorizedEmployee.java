@@ -21,7 +21,6 @@ public class AuthorizedEmployee {
 	@NotNull
 	@Size(max = 20)
 	@Column(name = "Type")
-	public String type;
 	
 	@NotNull
 	@Size(max = 30)

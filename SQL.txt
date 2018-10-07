@@ -160,4 +160,7 @@ INSERT INTO Purchase_Order
 VALUES
 (NULL, 'sm1', NULL, NULL, 'Pending For Approval', NULL, '2018-10-01', '2018-10-05'),
 (NULL, 'sm1', 'mg1', 1, 'Approved', 'Check for s-lon pipes', '2018-09-29', '2018-10-06')
+
+INSERT INTO Purchase_Order_Item
+(Purchase_Order_ID, Item_ID, Quantity)
  
