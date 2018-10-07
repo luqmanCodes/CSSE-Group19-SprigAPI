@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrder;
 
+import java.util.List;
+
 /**
  * @author dev
  *
@@ -17,4 +19,6 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrder;
 public interface PurchaseOrderRepository extends CrudRepository<PurchaseOrder, Integer> {
 	public Iterable<PurchaseOrder> findBySiteManagerIdAndStatus(String siteManagerId,String status);
 	public Iterable<PurchaseOrder> findBySiteManagerId(String siteManagerId);
+	public List<PurchaseOrder> findByStatus(String status);
+
 }

@@ -11,6 +11,7 @@ import java.util.Optional;
 
 import javax.validation.Valid;
 
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.PurchaseOrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -46,12 +47,17 @@ public class PurchaseOrderController {
 	private PurchaseOrderItemRepository purchaseOrderItemRepository;
 	@Autowired
 	private GoodsReceiptItemRepository goodsReceiptItemRepository;
-	
+	@Autowired
+	PurchaseOrderRepository purchaseOrderRepository;
 	@GetMapping
 	public @ResponseBody Iterable<PurchaseOrder> getAllPurchaseOrders() {
 		return this.purchaseOrderService.getAllPurchaseOrders();
 	}
-	
+
+	@GetMapping("/search/{status}")
+	public List<PurchaseOrder> search(@PathVariable String status){
+		return purchaseOrderRepository.findByStatus(status);
+	}
 	@PostMapping(consumes="application/json")
 	public PurchaseOrder insertPurchaseOrder(@RequestBody Map<String,Object> purchaseOrder) {
 		return this.purchaseOrderService.insertPurchaseOrder(purchaseOrder);
@@ -82,13 +88,15 @@ public class PurchaseOrderController {
 		System.out.println(purchaseOrderId);	
 		return this.purchaseOrderService.findPurchaseOrder(purchaseOrderId);
 	}
-	@PutMapping("/{purchaseOrderId}")
+	@PutMapping("/accept/{purchaseOrderId}")
 	public PurchaseOrder updatePurchaseOrder(@PathVariable(value="purchaseOrderId") int siteId, @Valid @RequestBody PurchaseOrder purchaseOrderDetails){
-		return this.purchaseOrderService.updatePurchaseOrder(siteId, purchaseOrderDetails);	
+		return this.purchaseOrderService.updatePurchaseOrder(siteId, purchaseOrderDetails);
 	}
 	
 	@GetMapping("/orderItem")
 	public Iterable<Object> getItemByPurchaseId(@RequestParam int id){
 		return this.purchaseOrderItemRepository.findByPurchaseOrderId(id);
 	}
+
+
 }
