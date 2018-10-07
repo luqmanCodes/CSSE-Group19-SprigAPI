@@ -76,4 +76,11 @@ public class GoodsReceiptServiceImplementation implements GoodsReceiptService {
 			return null;
 		}
 	}
+
+	@Override
+	public GoodsReceipt updateGoodsReceipt(int id, String status) {
+		GoodsReceipt gr = goodsReceiptRepository.findById(id).get();
+		gr.setStatus(status);	
+		return this.goodsReceiptRepository.save(gr);
+	}
 }

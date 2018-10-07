@@ -3,6 +3,7 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.PurchaseOrderItem;
@@ -19,4 +20,5 @@ public interface PurchaseOrderItemService {
 	public PurchaseOrderItemService insertPurchaseOrderItem(int purchaseOrderId, PurchaseOrderItemService purchaseOrderItemService);
 	public PurchaseOrderItemService updatePurchaseOrderItem(int purchaseOrderItemId, PurchaseOrderItemService purchaseOrderItemDetails);
 	public boolean deletePurchaseOrderItem(int id);
+	public List<Object> getPurchaseOrderItem(int id);
 }
