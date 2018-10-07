@@ -6,6 +6,7 @@ package lk.sliit.csse.group19.springApi.SpringBackendAPI.serviceImpl;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.Payment;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.PaymentRepository;
@@ -16,6 +17,7 @@ import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.PaymentService;
  * @author Dev
  *
  */
+@Service
 public class PaymentServiceImplementaion implements PaymentService {
 
 	@Autowired

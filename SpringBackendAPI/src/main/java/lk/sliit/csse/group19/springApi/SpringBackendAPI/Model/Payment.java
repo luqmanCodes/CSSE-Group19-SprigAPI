@@ -3,6 +3,7 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.Model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,6 +17,7 @@ import org.hibernate.annotations.OnDeleteAction;
  * @author Dev
  *
  */
+@Entity
 public class Payment {
 
 	@Id

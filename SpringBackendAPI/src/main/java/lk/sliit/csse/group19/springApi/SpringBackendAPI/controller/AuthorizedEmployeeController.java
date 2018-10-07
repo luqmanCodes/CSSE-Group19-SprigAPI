@@ -3,6 +3,8 @@
  */
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.controller;
 import java.util.Map;
+import java.util.Optional;
+
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -27,6 +29,11 @@ public class AuthorizedEmployeeController {
 	@GetMapping
 	public @ResponseBody Iterable<AuthorizedEmployee> getAllEmployees() {
 		return this.authorizedEmployeeService.getAllEmployees();
+	}
+	
+	@GetMapping("/{id}")
+	public Optional<AuthorizedEmployee> findAuthorizedEmployee(@PathVariable(value="id") String id) {
+		return this.authorizedEmployeeService.findAuthorizedEmployee(id);
 	}
 	
 	@PostMapping
