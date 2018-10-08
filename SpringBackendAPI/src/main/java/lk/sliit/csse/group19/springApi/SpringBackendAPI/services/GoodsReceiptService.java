@@ -1,5 +1,6 @@
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.services;
 
+import java.util.List;
 import java.util.Optional;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.GoodsReceipt;
@@ -17,4 +18,5 @@ public interface GoodsReceiptService {
 	public GoodsReceipt updateGoodsReceipt(int id, String status);
 	public boolean deleteGoodsReceipt(int id);
 	public Iterable<GoodsReceipt> getGoodsReciptsByPurchaseOrderIdAndStatus(int purchaseOrderId,String status);
+	public List<Object> findReciptItemByPurchaseOrderId(int id);
 }

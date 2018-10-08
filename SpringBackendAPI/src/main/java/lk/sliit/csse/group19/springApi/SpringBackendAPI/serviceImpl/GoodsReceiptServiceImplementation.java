@@ -1,11 +1,13 @@
 package lk.sliit.csse.group19.springApi.SpringBackendAPI.serviceImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.Model.GoodsReceipt;
+import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.GoodsReceiptItemRepository;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.GoodsReceiptRepository;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.repositories.PurchaseOrderRepository;
 import lk.sliit.csse.group19.springApi.SpringBackendAPI.services.GoodsReceiptService;
@@ -21,6 +23,9 @@ public class GoodsReceiptServiceImplementation implements GoodsReceiptService {
 
 	@Autowired
 	private Optional<GoodsReceipt> goodsReceipt;
+	
+	@Autowired
+	private GoodsReceiptItemRepository goodsReceiptItemRepository;
 
 	@Override
 	public Iterable<GoodsReceipt> getAllGoodsReceipts() {
@@ -82,5 +87,11 @@ public class GoodsReceiptServiceImplementation implements GoodsReceiptService {
 		GoodsReceipt gr = goodsReceiptRepository.findById(id).get();
 		gr.setStatus(status);	
 		return this.goodsReceiptRepository.save(gr);
+	}
+
+	@Override
+	public List<Object> findReciptItemByPurchaseOrderId(int id) {
+		// TODO Auto-generated method stub
+		return this.goodsReceiptItemRepository.findReciptItemByPurchaseOrderId(id);
 	}
 }
